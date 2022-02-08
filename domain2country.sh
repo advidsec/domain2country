@@ -8,7 +8,6 @@ while read d || [[ -n $d ]]; do
   ip=$(dig +short $1$d|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"|head -1)
   if [ -n "$ip" ]; then
     echo "$d ; $ip"
-    echo $ip >> domains.tmp
   else
     echo "$d => Fail resolving"
   fi

@@ -7,7 +7,7 @@ filename='domains.txt'
 while read d || [[ -n $d ]]; do
   ip=$(dig +short $1$d|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"|head -1)
   if [ -n "$ip" ]; then
-    echo "$d ; $ip"
+    echo "$1$d ; $ip"
   else
     echo "$d => Fail resolving"
   fi
